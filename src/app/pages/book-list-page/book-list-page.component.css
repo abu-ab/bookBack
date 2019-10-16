@@ -1,0 +1,78 @@
+.add {
+  width: 120px;
+}
+
+.first-condition,
+.second-condition {
+  width: 80%;
+}
+
+
+.thumbnail {
+  height: 100%;
+  width: 100%
+}
+
+.thumbnail .image {
+
+  height: 70px;
+
+}
+
+.thumbnail .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.book-name,
+.book-info {
+  height: 20px;
+  overflow: hidden;
+}
+
+
+
+
+.book-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.book-content {
+  margin-top: 20px;
+}
+
+.control a {
+  font-size: 18px;
+}
+
+.close-nav {
+  min-width: 25px;
+}
+
+.thumbnail {
+  position: relative;
+  padding-top: 100%;
+}
+
+.panel_toolbox>li {
+  float: right;
+}
+
+.thumbnail .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70%;
+  width: 100%;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+.book-img {
+  width: 220px;
+  height: 200px;
+}

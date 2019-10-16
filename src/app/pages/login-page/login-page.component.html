@@ -1,0 +1,39 @@
+<div class="login_wrapper">
+  <div class="animate form login_form">
+    <section class="login_content">
+      <form #frm="ngForm">
+        <h1>后台管理系统登录</h1>
+        <div>
+          <input type="text" [(ngModel)]="user.phone" class="form-control info-phone" placeholder="用户名" required
+            pattern="1[35789]\d{9}" name="phone" #phone="ngModel" />
+          <div class="alert" *ngIf="phone.invalid&&(phone.touched||phone.dirty)">
+            <div *ngIf="phone.errors.required">用户名不能为空</div>
+            <div *ngIf="phone.errors.pattern">用户名为有效的11位数字</div>
+          </div>
+        </div>
+        <div>
+          <input type="password" [(ngModel)]="user.password" class="form-control info-password" placeholder="密码"
+            required pattern="\d{4,8}" name="password" #pwd="ngModel" />
+          <div class="alert" *ngIf="pwd.invalid && (pwd.touched||pwd.dirty)">
+            <div *ngIf="pwd.errors.required">密码不能为空</div>
+            <div *ngIf="pwd.errors.pattern">密码为4-8位有效密码</div>
+          </div>
+        </div>
+        <div class="text-center">
+
+          <button class="btn btn-default submit" (click)="onLoad()" [disabled]="frm.invalid">登录</button>
+        </div>
+        <div class="alert">{{message}}</div>
+        <div class="clearfix"></div>
+        <div class="separator">
+          <div class="clearfix"></div>
+          <br />
+          <div>
+            <h1><i class="fa fa-paw"></i> Gray!</h1>
+            <p>©2019 All Rights Reserved. Gray</p>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

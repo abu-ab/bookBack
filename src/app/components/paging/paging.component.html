@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-5">
+    <div class="dataTables_info" id="datatable-checkbox_info">1页{{num}}行共：<span
+        class="all-length">{{itemList?.length}}</span>
+      条</div>
+  </div>
+  <div class="col-sm-7">
+    <div class="dataTables_paginate paging_simple_numbers" id="datatable-checkbox_paginate">
+      <ul class="pagination">
+        <li class="paginate_button pagin-btn" *ngFor="let item of pagingItem;let i=index" (click)="showItem(i)">
+          <a>{{i+1}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

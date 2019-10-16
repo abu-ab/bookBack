@@ -1,0 +1,53 @@
+.add-background {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  overflow: hidden;
+  font-family: '微软雅黑';
+}
+
+.add-book-number {
+  margin-bottom: 10px;
+  padding: 10px 17px;
+  /* display: inline-block; */
+  background: #fff;
+  border: 1px solid rgb(128, 128, 128);
+  opacity: 1;
+  transition: all .2s ease;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.thumbnail {
+  position: relative;
+  padding-top: 100%;
+}
+
+.panel_toolbox>li {
+  float: right;
+}
+
+.thumbnail .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 70%;
+
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+.book-img {
+  width: 220px;
+  height: 200px;
+}

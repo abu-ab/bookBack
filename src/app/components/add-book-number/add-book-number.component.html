@@ -1,0 +1,56 @@
+<div class="add-background" *ngIf="show">
+  <div class="add-book-number">
+    <div class="x_title">
+      <h2>图书入库</h2>
+      <ul class="nav navbar-right panel_toolbox close-nav text-right">
+        <li><a class="close-link" (click)="cancel()"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <br>
+      <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+
+        <div class="form-group text-center">
+          <img class="book-img" src="{{book.Book.Image}}" />
+        </div>
+        <div class="form-group">
+          <h3 class="book-name"></h3>
+        </div>
+        <div class="form-group">
+
+          <p class="col-md-4 col-sm-4 col-xs-4 text-left">ISBN:<span class="book-isbn">{{book.Book.ISBN}}</span></p>
+          <p class="col-md-4 col-sm-4 col-xs-4 text-left">出版日期:<span class="book-date">{{book.Book.PublishDate}}</span>
+          </p>
+          <p class="col-md-4 col-sm-4 col-xs-4 text-left">出版社:<span
+              class="book-press">{{book.Book.Publisher.Name}}</span></p>
+        </div>
+        <div class="form-group">
+
+          <p class="col-md-4 col-sm-4 col-xs-4 text-left">图书作者:<span
+              class="book-author">{{book.Book.Author.Name}}</span></p>
+          <p class="col-md-4 col-sm-4 col-xs-4 text-left">所属分类:<span
+              class="book-classify">{{book.Book.Category.Name}}</span>
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-4 col-sm-4 col-xs-12">需要入库的数量<span class="required">*</span>
+          </label>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <input id="number" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text"
+              placeholder="请输入1- 10" [(ngModel)]="count" name="count">
+          </div>
+        </div>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 text-center">
+            <button type="submit-book" class="btn btn-success submit-number" (click)="onSubmit()">提交</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

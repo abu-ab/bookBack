@@ -1,0 +1,91 @@
+<div class="right_col" role="main">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>添加新书</h3>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="x_content">
+    <br>
+    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+      <div class="form-group img-group text-center">
+        <img class="book-img" src="{{imgSrc}}" />
+        <div class="btn btn-default img-btn">选择封面
+          <input type="file" class="file-img" (change)="changeImg($event)" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">图书名称:<span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input type="text" id="book-name" required="required" class="form-control col-md-7 col-xs-12"
+            [(ngModel)]="bookList.Name" name="bookName">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">ISBN:<span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input type="text" id="book-isbn" name="last-name" required="required" class="form-control col-md-7 col-xs-12"
+            [(ngModel)]="bookList.ISBN" name='bookisbn'>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">出版日期:<span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <input id="book-date" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text"
+            [(ngModel)]="bookList.PublishDate" name="publishDate">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">所属分类:<span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <select id="book-classify" class="date-picker form-control col-md-7 col-xs-12"
+            [(ngModel)]="bookList.Category.Id" name="category">
+            <option *ngFor="let list of categoryList" [value]="list.Id">{{list.Name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">出版社:<span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <select id="press" class="date-picker form-control col-md-7 col-xs-12" [(ngModel)]="bookList.Publisher.Id"
+            name="publish">
+            <option *ngFor="let list of publisherList" [value]="list.Id">{{list.Name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">作者:<span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <select id="author" class="date-picker form-control col-md-7 col-xs-12" [(ngModel)]="bookList.Author.Id"
+            name="author">
+            <option *ngFor="let list of authorList" [value]="list.Id">{{list.Name}}</option>
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="form-group" style="margin: auto;">
+        <label for="heard">图书详情 *:</label>
+        <textarea id="txtarea" cols="150" rows="14" style="width: 100%;" [(ngModel)]="bookList.Introduce" name="introduce"></textarea>
+      </div>
+      <div class="ln_solid"></div>
+
+      <div class="form-group">
+        <div class="change text-center">
+
+          <button type="submit" class="btn btn-success add-book" (click)="changeBook()">添加</button>
+          <button type="submit" class="btn btn-primary back">返回</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>

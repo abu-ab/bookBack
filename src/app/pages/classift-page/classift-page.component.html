@@ -1,0 +1,51 @@
+<app-classify-dialog [title]="title" #dialog (addClassify)="addCategory($event)"
+  (changeClassify)="changeCategory($event)"></app-classify-dialog>
+<div class="right_col" role="main">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>图书分类管理</h3>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="page-title">
+    <div class="title_left" data-toggle="modal" data-target="#myModal">
+      <button class="add btn btn-default" style="width: 120px" (click)="addClassify()"><i
+          class="glyphicon glyphicon-plus"></i></button>
+    </div>
+
+    <div class="title_right">
+      <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+        <div class="input-group">
+          <input type="text" class="form-control search-input" placeholder="请输入名称" [(ngModel)]="classifyName">
+          <span class="input-group-btn">
+            <button class="btn btn-default classify-search" type="button">搜索!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <table class="table table-striped jambo_table bulk_action">
+    <thead>
+      <tr class="headings">
+        <th class="column-title text-center" style="display: table-cell;">编号 </th>
+        <th class="column-title text-center" style="display: table-cell;">分类名称 </th>
+        <th class="column-title text-center" style="display: table-cell;">权重 </th>
+        <th class="column-title text-center" style="display: table-cell;">操作 </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="even pointer" *ngFor="let list of pageItemList;let i=index">
+        <td class="text-center index">{{list.index+1}} </td>
+        <td class="text-center name"> {{list.Name}} </td>
+        <td class="text-center number"> {{list.Priority}} </td>
+        <td class="text-center modify" (click)="changeClassify(list)">
+          <i class="fa fa-book"> </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-paging [itemList]="categoryList|category:classifyName" (changeItem)="changeItem($event)">
+  </app-paging>
+</div>

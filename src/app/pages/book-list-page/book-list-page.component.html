@@ -1,0 +1,67 @@
+<div class="right_col" role="main">
+  <div class="page-title">
+    <div class="title_left">
+      <h3>图书事务管理</h3>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-sm-6">
+      <button class="add btn btn-default" (click)="skipAddBook()"><i class="glyphicon glyphicon-plus"></i></button>
+
+    </div>
+    <div class="col-sm-6 row">
+      <div class="col-sm-4">
+        <select class="first-condition btn btn-default dropdown-toggle" [(ngModel)]="publishIndex">
+          <option value="">请选择出版社</option>
+          <option *ngFor="let list of publisherList" [value]="list.Id">{{list.Name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <select class="second-condition btn btn-default dropdown-toggle" [(ngModel)]="categoryIndex">
+          <option value="">请选择类别</option>
+          <option *ngFor="let list of categoryList" [value]="list.Id">{{list.Name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <input type="text" class="book-search form-control" placeholder="请输入书名..." [(ngModel)]="bookName">
+          <span class="input-group-btn">
+            <button class="btn btn-default search-btn" type="button" (click)="searchBook()">搜索!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row view" *ngIf="bookList.length==0">
+    暂无数据
+  </div>
+  <div class="row view first-view book-list">
+
+    <div class="col-sm-2 col-xs-4 first-view" *ngFor="let list of bookList">
+      <div class="thumbnail">
+        <div class="image">
+          <img src="{{list.Book.Image}}" alt="image">
+        </div>
+        <div class="book-content">
+          <p class="book-name">{{list.Book.Name}} </p>
+          <div class="row book-info">
+            <p class="col-sm-6 col-xs-6 book-conditional text-left">{{list.Book.Publisher.Name}} </p>
+            <p class="col-sm-6 col-xs-6 book-category text-right">{{list.Book.Category.Name}}</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-xs-6 text text-left"><span class="book-number">{{list.Number}}</span>/<span
+                class="book-length">{{list.Detail.length}}</span></div>
+            <div class="col-sm-6 col-xs-6 text-right control">
+              <a><i class="fa fa-arrow-up" (click)="addBookNumber(list)"></i></a>
+              <a><i class="fa fa-pencil" (click)="modifierBook(list)"></i></a>
+              <a href="#"><i class="fa fa-times"></i></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-add-book-number (bookPutaway)="bookPutaway($event)"></app-add-book-number>
